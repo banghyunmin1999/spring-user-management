@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Noto Sans KR', Arial, sans-serif;
+    margin: 0;
+    background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    color: #333;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+
+.main-container {
+    text-align: center;
+    padding: 2rem;
+    width: 90%; /* Adjust width as needed */
+    max-width: 1000px; /* Maximum width for larger screens */
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 1.5rem; /* Reduced margin below the title */
+    letter-spacing: -1px;
+}
+
+/* Menu card container */
+.menu-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 3rem; /* Increased margin above the menu */
+}
+
+.menu-card {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    padding: 2.5rem 3rem;
+    text-align: center;
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
+}
+
+.menu-card a {
+    color: #34495e;
+    font-size: 1.25rem;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* User info area in the top right */
+.user-info {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    border: 1px solid #e8e8e8;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+    padding: 0.5rem 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.95rem;
+}
+
+.user-info:empty {
+    display: none;
+}
+
+.user-info span {
+    color: #2c3e50;
+    padding-left: 0.75rem;
+}
+
+/* Style for login/logout links */
+.user-info a {
+    color: #fff;
+    background: #3498db;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 30px;
+    padding: 0.6rem 1.2rem;
+    transition: all 0.2s ease;
+}
+
+.user-info a:hover {
+    background: #2980b9;
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+}
+
+.user-info .mypage-link {
+    background: #e8eaf6;
+    color: #3f51b5;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    margin-left: 0;
+}
+.user-info .mypage-link:hover {
+    background: #c5cae9;
+}
+
+/* 통계 컨테이너 */
+.stats-container {
+    display: flex;
+    justify-content: center; /* Center the stats horizontally */
+    gap: 2rem;
+    margin-bottom: 2rem; /* Space between stats and menu */
+}
+
+/* 개별 통계 카드 */
+.stat-card {
+    background: #ffffff;
+    padding: 1.5rem 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    text-align: center;
+    min-width: 160px;
+    border: 1px solid #f0f0f0;
+}
+
+/* 통계 숫자 (e.g., 15) */
+.stat-value {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #3498db;
+    line-height: 1.1;
+}
+
+/* 통계 라벨 (e.g., 총 회원수) */
+.stat-label {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #555;
+    font-weight: 500;
+}

@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"com.kopo.project1","l":"DB"},{"p":"com.kopo.project1","l":"HomeController"},{"p":"com.kopo.project1","l":"User"}]

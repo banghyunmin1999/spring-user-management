@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+/* Basic Body Style */
+body {
+    font-family: 'Noto Sans KR', Arial, sans-serif;
+    margin: 0;
+    padding: 2rem;
+    background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    color: #333;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Main content container */
+.list-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.list-container h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+    letter-spacing: -1px;
+}
+
+/* Grid container for the user cards */
+.user-card-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+/* Individual user card styling */
+.user-card {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+    border: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.user-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+.user-card-info {
+    text-align: left;
+    /* 카드가 너무 좁아질 때 정보 영역이 버튼을 밀어내도록 설정 */
+    flex-grow: 1;
+}
+
+.user-card-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #34495e;
+    margin-bottom: 0.75rem;
+}
+
+.user-card-details {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.user-card-details span {
+    display: flex;
+    align-items: center;
+}
+
+/* Container for buttons (Updated for Stability) */
+.user-card-actions {
+    display: flex;
+    align-items: center; /* 버튼 세로 중앙 정렬 */
+    gap: 0.5rem;
+    flex-shrink: 0; /* 버튼 영역이 좁아지는 것을 방지 */
+}
+
+/* form 태그의 불필요한 여백 제거 (Added for Stability) */
+.user-card-actions form {
+    margin: 0;
+    display: inline; /* form 태그를 인라인 요소처럼 취급 */
+}
+
+/* Edit and Delete buttons (Updated for Stability) */
+.edit-btn, .delete-btn {
+    color: white !important;
+    text-decoration: none;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    display: inline-block; /* 버튼 모양 안정화 */
+    white-space: nowrap;  /* 버튼 글자 줄바꿈 방지 */
+}
+
+.edit-btn:hover, .delete-btn:hover {
+    transform: scale(1.05);
+}
+
+.edit-btn {
+    background: #3498db;
+}
+
+.delete-btn {
+    background: #e74c3c;
+}
+
+/* Button to go back to main */
+.action-button {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 8px;
+    background: #2c3e50;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.action-button:hover {
+    background: #46627f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(44, 62, 80, 0.2);
+}
