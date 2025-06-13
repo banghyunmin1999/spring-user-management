@@ -89,9 +89,17 @@ public class HomeController {
 		String pwd = request.getParameter("pwd");
 		String phone = request.getParameter("phone");
 		String address = request.getParameter("address");
+		String userType = request.getParameter("userType");
 		
+		// 관리자 선택 시 비밀번호 확인
+		if ("admin".equals(userType)) {
+			String adminPassword = request.getParameter("adminPassword");
+			if (!"admin1234".equals(adminPassword)) { // 관리자 등록을 위한 비밀번호
+				return "redirect:/join?error=admin";
+			}
+		}
 		
-		db.insertData(new User(id, pwd, name, phone, address));
+		db.insertData(new User(id, pwd, name, phone, address), userType);
 		return "redirect:/";
 	}
 
@@ -144,7 +152,15 @@ public class HomeController {
 	 * @return "user_list" 뷰 이름
 	 */
 	@RequestMapping(value="/user_list", method=RequestMethod.GET)
-	public String userList(Model model) {
+	public String userList(Model model, HttpSession session) {
+		// 세션에서 사용자 타입 확인
+		String userType = (String)session.getAttribute("user_type");
+		
+		// 관리자가 아닌 경우 메인 페이지로 리다이렉트
+		if (userType == null || !userType.equals("admin")) {
+			return "redirect:/";
+		}
+		
 		DB db = new DB();
 		ArrayList<User> userList = db.selectAll();
 		model.addAttribute("userList", userList);

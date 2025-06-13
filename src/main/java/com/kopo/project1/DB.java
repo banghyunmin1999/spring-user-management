@@ -121,12 +121,13 @@ public class DB {
 	 * 이 과정에서 비밀번호는 SHA-512로 자동 해싱됩니다.
 	 *
 	 * @param user 삽입할 사용자 정보가 담긴 User 객체
+	 * @param userType 사용자 유형
 	 */
-	public void insertData(User user) {
+	public void insertData(User user, String userType) {
 		this.open();
 		String query = "INSERT INTO user (user_type, id, pwd, name, phone, address, created, last_updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		try (PreparedStatement statement = this.connection.prepareStatement(query)) {
-			statement.setString(1, "guest");
+			statement.setString(1, userType);
 			statement.setString(2, user.id);
 			statement.setString(3, sha512(user.pwd)); // 비밀번호 해싱
 			statement.setString(4, user.name);

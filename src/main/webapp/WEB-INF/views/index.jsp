@@ -42,9 +42,11 @@
 			<div class="menu-card">
 				<a href="${pageContext.request.contextPath}/join">회원 가입</a>
 			</div>
-			<div class="menu-card">
-				<a href="${pageContext.request.contextPath}/user_list">회원 리스트</a>
-			</div>
+			<c:if test="${sessionScope.user_type eq 'admin'}">
+				<div class="menu-card">
+					<a href="${pageContext.request.contextPath}/user_list">회원 리스트</a>
+				</div>
+			</c:if>
 		</div>
 	</main>
 </body>

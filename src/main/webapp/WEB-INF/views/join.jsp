@@ -43,6 +43,21 @@
                 <input type="text" id="address" name="address" placeholder="주소" class="form-control" required />
             </div>
 
+            <div class="form-group">
+                <label>사용자 유형</label>
+                <div class="radio-group">
+                    <input type="radio" id="guest" name="userType" value="guest" checked />
+                    <label for="guest">일반 사용자</label>
+                    <input type="radio" id="admin" name="userType" value="admin" />
+                    <label for="admin">관리자</label>
+                </div>
+            </div>
+
+            <div class="form-group" id="adminPasswordGroup" style="display: none;">
+                <label for="adminPassword">관리자 비밀번호</label>
+                <input type="password" id="adminPassword" name="adminPassword" placeholder="관리자 등록을 위한 비밀번호" class="form-control" />
+            </div>
+
             <button type="submit" class="submit-btn">확인</button>
         </form>
         
@@ -51,6 +66,24 @@
 
     <script>
         const form = document.getElementById('joinForm');
+        const adminRadio = document.getElementById('admin');
+        const guestRadio = document.getElementById('guest');
+        const adminPasswordGroup = document.getElementById('adminPasswordGroup');
+        const adminPasswordInput = document.getElementById('adminPassword');
+
+        // 라디오 버튼 변경 시 관리자 비밀번호 필드 표시/숨김
+        function toggleAdminPassword() {
+            if (adminRadio.checked) {
+                adminPasswordGroup.style.display = 'block';
+                adminPasswordInput.required = true;
+            } else {
+                adminPasswordGroup.style.display = 'none';
+                adminPasswordInput.required = false;
+            }
+        }
+
+        adminRadio.addEventListener('change', toggleAdminPassword);
+        guestRadio.addEventListener('change', toggleAdminPassword);
 
         form.addEventListener('submit', function(event) {
             const pwd = document.getElementById('pwd').value;
@@ -58,13 +91,16 @@
 
             // 두 비밀번호 값이 일치하지 않는 경우
             if (pwd !== pwd2) {
-                // 사용자에게 경고창을 보여줍니다.
                 alert('비밀번호가 일치하지 않습니다.');
-                
-                // form의 기본 제출 동작을 막습니다. (서버로 전송되는 것을 중단)
-                event.preventDefault(); 
+                event.preventDefault();
             }
         });
+
+        // 에러 메시지 표시
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('error') === 'admin') {
+            alert('관리자 비밀번호가 일치하지 않습니다.');
+        }
     </script>
 
 </body>
