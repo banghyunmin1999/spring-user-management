@@ -76,3 +76,23 @@ Spring MVC와 JSP 기반의 사용자 관리 웹 애플리케이션입니다. SQ
 
 ---
 
+
+##  실행 가이드
+### 1. 프로젝트 클론
+```bash
+git clone https://github.com/banghyunmin1999/spring-user-management.git
+cd project1
+```
+
+### 2. 환경 세팅
+   - 프로젝트 우클릭 > Maven > Update Project
+
+
+
+### 3. 관리자 계정 생성
+1. 회원가입 페이지 접속
+2. "관리자" 선택
+3. 관리자 비밀번호 입력 (기본값: admin1234)
+4. 가입 완료
+
+
